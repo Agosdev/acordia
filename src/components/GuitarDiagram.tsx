@@ -1,5 +1,7 @@
 import { VOICINGS } from "../music/guitar";
-export default function GuitarDiagram({ root, type }: { root: string; type: string }) {
+import { type NotationMode } from "../music/notation";
+export default function GuitarDiagram({ root, type, notation="both" }: { root: string; type: string; notation?: NotationMode }) {
+  void notation;
   const key = `${root} ${type === "minor" ? "minor" : "major"}`;
   const pos = VOICINGS[key];
   if (!pos) return <p>Sin digitación verificada.</p>;
@@ -17,7 +19,7 @@ export default function GuitarDiagram({ root, type }: { root: string; type: stri
         if (f==="x") return <text key={i} x={x} y={22} textAnchor="middle" fill="#fff">x</text>;
         if (f===0) return <text key={i} x={x} y={22} textAnchor="middle" fill="#fff">o</text>;
         const y=30+(f as number)*30-15;
-        return <g key={i}><circle cx={x} cy={y} r={10} fill="#7c8cff"/><text x={x} y={y+4} textAnchor="middle" fill="#fff" fontSize="10">{i+1}</text></g>;
+        return <g key={i}><circle cx={x} cy={y} r={10} fill="#7c8cff"/></g>;
       })}
     </svg>
   );

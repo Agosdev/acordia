@@ -4,7 +4,8 @@ import { Note } from "tonal";
 const SEMITONES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 function pc(n: string) { return Note.pitchClass(n); }
 
-export default function PianoKeyboard({ root, type }: { root: string; type: string }) {
+import { noteLabel, type NotationMode } from "../music/notation";
+export default function PianoKeyboard({ root, type, notation="both" }: { root: string; type: string; notation?: NotationMode }) {
   const pcs = new Set(chordNotes(root as any, type).map(pc));
   const start = 48; // C3
   const keys = Array.from({ length: 24 }, (_, i) => start + i);
@@ -20,7 +21,7 @@ export default function PianoKeyboard({ root, type }: { root: string; type: stri
         const active = pcs.has(name);
         return <g key={m}>
           <rect x={x} y={0} width={w-2} height={180} fill={active?"#7c8cff":"#f5f5f5"} stroke="#222" />
-          <text x={x+w/2-1} y={165} textAnchor="middle" fontSize="10" fill="#222">{name}</text>
+          <text x={x+w/2-1} y={165} textAnchor="middle" fontSize="10" fill="#222">{noteLabel(name,notation)}</text>
         </g>;
       })}
       {keys.filter(m=>isBlack(m)).map(m => {
