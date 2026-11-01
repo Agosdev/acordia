@@ -1,10 +1,12 @@
 :root {
-  --bg: #0b1026;
-  --surface: rgba(255,255,255,0.08);
-  --border: rgba(255,255,255,0.18);
-  --accent: #7c8cff;
-  --radius: 16px;
-  --shadow: 0 8px 32px rgba(0,0,0,0.35);
+  --bg: radial-gradient(1200px 600px at 20% 10%, #1b2a6b, #0b1026);
+  --surface: rgba(255,255,255,0.09);
+  --border: rgba(255,255,255,0.2);
+  --accent: #8aa4ff;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 body { margin:0; background:var(--bg); color:#fff; font-family:system-ui; }
-.glass { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); backdrop-filter: blur(12px); }
+.glass { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); backdrop-filter: blur(10px); }
+button { background:var(--surface); color:#fff; border:1px solid var(--border); border-radius:10px; padding:8px 12px; }
+select { background:var(--surface); color:#fff; border:1px solid var(--border); border-radius:10px; padding:6px; }

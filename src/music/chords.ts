@@ -4,7 +4,7 @@ export const ROOTS = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"] as c
 export type Root = (typeof ROOTS)[number];
 
 export const CHORD_TYPES = [
-  "major","minor","dim","aug","maj7","m7","7","m7b5","dim7","sus2","sus4","add9","6","m6","9","m9","maj9","11","13","m11","m13"
+  "major","minor","7","maj7","m7","sus2","sus4","add9","6","m6","9","dim","aug","7sus4","5"
 ] as const;
 
 export function chordNotes(root: Root, type: string): string[] {
