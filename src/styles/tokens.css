@@ -10,3 +10,10 @@ body { margin:0; background:var(--bg); color:#fff; font-family:system-ui; }
 .glass { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); backdrop-filter: blur(10px); }
 button { background:var(--surface); color:#fff; border:1px solid var(--border); border-radius:10px; padding:8px 12px; }
 select { background:var(--surface); color:#fff; border:1px solid var(--border); border-radius:10px; padding:6px; }
+
+:root {
+  --finger-1: #5DDCF3;
+  --finger-2: #FF9588;
+  --finger-3: #F9C86A;
+  --finger-4: #BCA5FF;
+}
