@@ -83,3 +83,15 @@ Task 04A: Integración completa de audio acústico real (FreePats CC0 1.0).
 - Validación final del ajuste: build aprobado, 73 tests unitarios y 4 E2E
   aprobados en Chrome; 74 muestras acústicas decodificadas. Capturas móvil/escritorio
   revisadas en test-results/acordia-*.png. git diff --check limpio.
+
+## Publicación autorizada en GitHub Pages — 2026-11-02
+- UI aprobada ya guardada en a7c81d1. Se agrega workflow de GitHub Actions para
+  main, con npm ci, tests, build y despliegue oficial a github-pages.
+- Vite usa /acordia/ en modo pages y el audio respeta BASE_URL. El CSS generado
+  también resuelve el fondo bajo /acordia/images/. Desarrollo permanece en /.
+- Validación: 73 unitarios aprobados, build pages aprobado y 4 E2E aprobados con
+  un worker; la corrida concurrente previa tuvo un timeout de 30s en progresiones.
+- scripts/verify-pages.mjs comprueba UI, fondo y muestras piano/guitarra en Chrome;
+  aprobado contra preview --mode pages en puerto 4174. PAGES_URL permite verificar
+  la URL pública después del despliegue.
+- Publicación solicitada por la usuaria; sin dependencias nuevas ni cambios de diseño.

@@ -39,6 +39,6 @@ export function findRegion(midi: number, instrument: Instrument): MappedSample {
 }
 
 export function getSampleUrl(instrument: Instrument, sampleFileName: string): string {
-  // Production / dev assets served from /audio/<instrument>/<sampleFileName>
-  return `/audio/${instrument}/${sampleFileName}`;
+  // Respect the deployment subdirectory while retaining local development URLs.
+  return `${import.meta.env.BASE_URL}audio/${instrument}/${sampleFileName}`;
 }
