@@ -17,7 +17,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      # Existing TypeScript 7 / ESLint peers conflict; preserve the tested lockfile.
+      - run: npm ci --legacy-peer-deps
       - run: npm test
       - run: npm run build -- --mode pages
       - uses: actions/configure-pages@v5

@@ -95,3 +95,7 @@ Task 04A: Integración completa de audio acústico real (FreePats CC0 1.0).
   aprobado contra preview --mode pages en puerto 4174. PAGES_URL permite verificar
   la URL pública después del despliegue.
 - Publicación solicitada por la usuaria; sin dependencias nuevas ni cambios de diseño.
+- Primera corrida remota falló en npm ci por el conflicto preexistente de peers
+  TypeScript 7 / typescript-eslint (<6.1). El workflow instala con
+  --legacy-peer-deps conservando versiones y lockfile; tests/build siguen siendo
+  obligatorios. La actualización del tooling de lint queda fuera de esta publicación.
