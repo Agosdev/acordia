@@ -42,3 +42,8 @@ export const FINGERINGS: Record<string, (number | "x" | 0)[]> = {
   "F# minor": [1,3,4,1,1,1],
   "B7": ["x",2,1,3,0,4],
 };
+
+/** Exact catalog key: never substitute a different chord quality. */
+export function guitarVoicingKey(root: string, type: string): string {
+  return type === "7" ? `${root}7` : `${root} ${type}`;
+}

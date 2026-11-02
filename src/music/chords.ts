@@ -13,5 +13,12 @@ export function chordNotes(root: Root, type: string): string[] {
 }
 
 export function chordMidi(root: Root, type: string, baseOctave = 4): number[] {
-  return chordNotes(root, type).map((n, i) => Note.midi(`${n}${baseOctave + (i > 6 ? 1 : 0)}`) ?? 60);
+  const rootMidi = Note.midi(`${root}${baseOctave}`)!;
+  let previous = rootMidi - 1;
+  return chordNotes(root, type).map((note) => {
+    let midi = baseOctave * 12 + 12 + (Note.chroma(note) ?? 0);
+    while (midi <= previous) midi += 12;
+    previous = midi;
+    return midi;
+  });
 }
