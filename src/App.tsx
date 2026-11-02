@@ -26,7 +26,7 @@ export default function App() {
       </header>
       <section className="glass" style={{padding:16,display:"grid",gap:12}}>
         <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
-          <select value={root} onChange={e=>setRoot(e.target.value)}>{ROOTS.map(r=><option key={r}>{r}</option>)}</select>
+          <select value={root} onChange={e=>setRoot(e.target.value)}>{ROOTS.map(r=><option key={r} value={r}>{noteLabel(r,notation)}</option>)}</select>
           <select value={type} onChange={e=>setType(e.target.value)}>{CHORD_TYPES.map(t=><option key={t}>{t}</option>)}</select>
         </div>
         <div><strong>{noteLabel(root,notation)} {type}</strong> — {notes.map(n=>noteLabel(n,notation)).join(" ")}</div>

@@ -21,7 +21,14 @@ export default function PianoKeyboard({ root, type, notation="both" }: { root: s
         const active = pcs.has(name);
         return <g key={m}>
           <rect x={x} y={0} width={w-2} height={180} fill={active?"#7c8cff":"#f5f5f5"} stroke="#222" />
-          <text x={x+w/2-1} y={165} textAnchor="middle" fontSize="10" fill="#222">{noteLabel(name,notation)}</text>
+          {notation === "both" ? (
+            <>
+              <text x={x+w/2-1} y={150} textAnchor="middle" fontSize="9" fill="#222">{name}</text>
+              <text x={x+w/2-1} y={164} textAnchor="middle" fontSize="8" fill="#222">{noteLabel(name,"latin").replace(/[♯♭]/g,m=>m)}</text>
+            </>
+          ) : (
+            <text x={x+w/2-1} y={160} textAnchor="middle" fontSize="10" fill="#222">{noteLabel(name,notation)}</text>
+          )}
         </g>;
       })}
       {keys.filter(m=>isBlack(m)).map(m => {
